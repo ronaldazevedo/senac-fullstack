@@ -13,8 +13,10 @@ namespace MeuCorre.Domain.Entities
         public string Nome { get; private set;  }
         public string Cor { get; private set; }
 
+        //contrutor
         public tag(Guid usuarioId, string nome, string cor)
         {
+            ValidarEntidadeTag(cor);
             UsuarioId = usuarioId;
             Nome = nome.ToLower();
             Cor = cor;
@@ -23,7 +25,7 @@ namespace MeuCorre.Domain.Entities
         private void ValidarEntidadeTag(string cor)
         {
             if (string.IsNullOrEmpty(cor))
-            {
+            { 
                 return; //retorna caso a cor seja nula ou vazia
             }
 
