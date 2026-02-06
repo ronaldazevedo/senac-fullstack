@@ -23,7 +23,7 @@ namespace MeuCorre.Infra.Repositories
         public async Task<IList<Categoria>> ListarTodasPorUsuarioAsync(Guid usuarioId)
         {
             var listaCategorias =  _meuDbContext.Categorias
-                .Where(c => c.UsuarioId == usuarioId);
+                .Where(t => t.UsuarioId == usuarioId);
 
             return await listaCategorias.ToListAsync();
         }
@@ -31,7 +31,7 @@ namespace MeuCorre.Infra.Repositories
         public async Task<bool> ExisteAsync(Guid categoriaId)
         {
             var existe = await _meuDbContext.Categorias
-                .AnyAsync(c => c.Id == categoriaId);
+                .AnyAsync(t => t.Id == categoriaId);
 
             return existe;
         }
