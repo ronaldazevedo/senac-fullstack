@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 namespace MeuCorre.Application.UseCases.Tags.Commands
 {
     public class AtivarTagCommand : IRequest<(string, bool)>
-    {
-        [Required(ErrorMessage = "E necessário informar o id do usuário")]
-        public required Guid UsuarioId { get; set; }
+    { 
 
         [Required(ErrorMessage = "É necessário informar o ID da tag")]
         public required Guid Id { get; set; }
